@@ -6,6 +6,10 @@
 *.user
 *.sln.docstates
 
+# IDE config
+.vscode/
+.vs/
+
 # Build results
 
 [Dd]ebug/
@@ -131,3 +135,4 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+.fake
