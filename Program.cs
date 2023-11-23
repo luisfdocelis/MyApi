@@ -23,10 +23,14 @@ builder.Services.AddControllers(options =>
 });
 
 // DB context connection settings
+#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
 string? app_connection = builder.Configuration.GetConnectionString(name: "WebApiDatabase");
+#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
 builder.Services.AddDbContext<MyDatabaseContext>( options => options.UseNpgsql( app_connection ));
 
+#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
 string? jwt_connection = builder.Configuration.GetConnectionString(name: "WebApiDatabaseJWT");
+#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
 builder.Services.AddDbContext<JwtContext>( options => options.UseNpgsql( jwt_connection ));
 builder.Services.AddIdentityCore<User>()
     .AddRoles<IdentityRole>()
