@@ -6,6 +6,7 @@ services:
     container_name: nginx
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - app
       - postgresql-server
@@ -27,12 +28,12 @@ services:
     environment:
       - ASPNETCORE_HTTP_PORTS=8080
       # - ASPNETCORE_URLS=http://+:80;https://+:443
-      # - ASPNETCORE_HTTPS_PORTS=8443 
-      # - ASPNETCORE_Kestrel__Certificates__Default__Password=q1w2e3r4
-      # - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx 
+      - ASPNETCORE_HTTPS_PORTS=8443 
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=q1w2e3r4
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx 
       - ASPNETCORE_ENVIRONMENT=Staging
-    # volumes:
-    #  - $USERPROFILE/.aspnet/https:/https/
+    volumes:
+     - $USERPROFILE/.aspnet/https:/https/
     links:
       - "postgresql-server:database"
     build:
