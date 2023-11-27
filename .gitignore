@@ -20,7 +20,7 @@ x64/
 [Oo]bj/
 [Mm]odels/[Mm]igrations/
 [Oo]ut/
-[Pp]ostgres/
+[Pp]ostgres/[Dd]ata
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
