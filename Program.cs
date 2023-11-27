@@ -1,5 +1,6 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -59,7 +60,7 @@ builder.Services
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsStaging())
 {
     app.UseExceptionHandler("/error-development");
     app.UseSwagger();
@@ -69,9 +70,7 @@ if (app.Environment.IsDevelopment())
     app.UseExceptionHandler("/error");
 }
 await SeedData();
-app.UseHttpsRedirection();
-app.UseAuthentication();
-app.UseAuthorization();
+
 
 app.UseCors(builder =>
 {
@@ -79,6 +78,11 @@ app.UseCors(builder =>
     .AllowAnyOrigin()
     .AllowAnyMethod()
     .AllowAnyHeader();
+});
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders =  ForwardedHeaders.All
 });
 
 app.MapControllers();

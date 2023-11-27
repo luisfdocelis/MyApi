@@ -12,6 +12,7 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /App
 COPY --from=build-env /App/out .
-CMD dotnet dev-certs https
-CMD dotnet dev-certs https --trust
-ENTRYPOINT ["dotnet", "MyApi.dll", "--urls", "http://*:8080;https://*:8443"]
+# CMD dotnet dev-certs https
+# CMD dotnet dev-certs https --trust
+# EXPOSE 8080 8443
+ENTRYPOINT ["dotnet", "MyApi.dll", "--urls", "http://*:8080"]

@@ -15,13 +15,13 @@ namespace MyApi.Filters
             HttpResponse response = context.HttpContext.Response;
             HttpContext httpContext = context.HttpContext;
             
-            if ( !request.IsHttps)
+            /* if ( !request.IsHttps)
             {
                 
                 string redirectUrl =UriHelper.GetEncodedUrl(request).Replace("http:", "https:");
                 response.Redirect(redirectUrl, false);
                 httpContext.Response.CompleteAsync();
-            }
+            }*/ 
         }
 
         public void OnActionExecuted(ActionExecutedContext context)

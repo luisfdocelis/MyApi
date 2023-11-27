@@ -1,0 +1,257 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "MyApi",
+      "version": "1.0"
+    },
+    "paths": {
+      "/api/AppUser": {
+        "get": {
+          "tags": [
+            "AppUser"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Appuser"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Appuser"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Appuser"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "AppUser"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Appuser"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Appuser"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Appuser"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "AppUser"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Appuser"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Appuser"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Appuser"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/AppUser/{id}": {
+        "get": {
+          "tags": [
+            "AppUser"
+          ],
+          "operationId": "Get",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Appuser"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Appuser"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Appuser"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "AppUser"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/token": {
+        "post": {
+          "tags": [
+            "Jwt"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateRequest"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateRequest"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/me": {
+        "get": {
+          "tags": [
+            "Jwt"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Appuser": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "age": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "address": {
+              "type": "string",
+              "nullable": true
+            },
+            "salary": {
+              "type": "number",
+              "format": "float",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "AuthenticateRequest": {
+          "type": "object",
+          "properties": {
+            "userName": {
+              "type": "string",
+              "nullable": true
+            },
+            "password": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
