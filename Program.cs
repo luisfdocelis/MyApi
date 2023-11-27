@@ -84,7 +84,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders =  ForwardedHeaders.All
 });
-
 app.MapControllers();
 
 app.Run();

@@ -12,19 +12,17 @@ services:
       - postgresql-server
     networks:
       - load_balancer
-    links:
-      - "app"
     volumes:
       - ./nginx/ssl:/etc/nginx/ssl/
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./nginx/ssl_passwords:/var/run/nginx/ssl_passwords
-
-
-    
+  
   app:
     hostname: app
     deploy:
       replicas: 3
+      mode: replicated
+      endpoint_mode: dnsrr
     environment:
       - ASPNETCORE_HTTP_PORTS=8080
       # - ASPNETCORE_URLS=http://+:80;https://+:443
