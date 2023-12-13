@@ -10,18 +10,17 @@ namespace MyApi.Filters
     {
         public int Order => int.MaxValue - 10;
 
-        public void OnActionExecuting(ActionExecutingContext context) { 
+        public void OnActionExecuting(ActionExecutingContext context) {
             HttpRequest request = context.HttpContext.Request;
             HttpResponse response = context.HttpContext.Response;
             HttpContext httpContext = context.HttpContext;
-            
+
             /* if ( !request.IsHttps)
             {
-                
                 string redirectUrl =UriHelper.GetEncodedUrl(request).Replace("http:", "https:");
                 response.Redirect(redirectUrl, false);
                 httpContext.Response.CompleteAsync();
-            }*/ 
+            }*/
         }
 
         public void OnActionExecuted(ActionExecutedContext context)

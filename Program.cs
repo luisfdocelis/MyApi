@@ -10,7 +10,7 @@ using MyApi.Models.Jwt;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-    
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -55,7 +55,7 @@ builder.Services
             ValidAudience = builder.Configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes( builder.Configuration["Jwt:Key"]) )
         };
-        });
+    });
 
 var app = builder.Build();
 

@@ -61,10 +61,9 @@ namespace MyApi.Controllers
 
             var jwt = new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
 
-            return Results.Ok(new { AccessToken = jwt }); 
- 
+            return Results.Ok(new { AccessToken = jwt });
         }
-    
+
         [HttpGet("/me")]
         [Authorize]
         public IResult Get(IHttpContextAccessor contextAccessor)

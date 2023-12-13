@@ -4,8 +4,7 @@ using System.Collections.Generic;
 namespace MyApi.Models;
 
 public partial class Appuser
-{ 
-    
+{
     public int Id { get; set; }
 
     public string Name { get; set; } = null!;

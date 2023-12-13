@@ -7,4 +7,4 @@ FROM nginx:latest
 # COPY ssl_passwords /var/run/nginx/ssl_passwords
 
 
-CMD ["nginx", "-g", "daemon off;"]  
+CMD ["nginx", "-g", "daemon off;"]

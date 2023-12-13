@@ -8,7 +8,7 @@ GRANT CREATE ON DATABASE my_database TO jwt;
 
 ALTER USER jwt_user SET search_path TO jwt;
 
-
-dotnet ef migrations add FirstMigration -o Models/Migrations --context MyApi.Models.Jwt.JwtContext
+dotnet ef migrations add JwtDbMigration --context MyApi.Models.Jwt.JwtContext
+dotnet ef migrations add  -o Models/Migrations --context MyApi.Models.Jwt.JwtContext
 
 dotnet ef database update  --context MyApi.Models.Jwt.JwtContext

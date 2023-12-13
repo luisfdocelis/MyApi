@@ -7,7 +7,7 @@ namespace MyApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class HostController : ControllerBase
-    { 
+    {
 
         // GET: api/AppUser
         [HttpGet]

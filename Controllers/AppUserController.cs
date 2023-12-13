@@ -16,7 +16,7 @@ namespace MyApi.Controllers
     {
 
         private readonly MyDatabaseContext db;
-        
+
         public AppUserController( MyDatabaseContext _db){
             db = _db;
         }
