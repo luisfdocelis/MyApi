@@ -6,6 +6,11 @@
 *.user
 *.sln.docstates
 
+# IDE config
+.vscode/
+.vs/
+.vscode
+
 # Build results
 
 [Dd]ebug/
@@ -13,6 +18,9 @@
 x64/
 [Bb]in/
 [Oo]bj/
+[Mm]odels/[Mm]igrations/
+[Oo]ut/
+[Pp]ostgres/[Dd]ata
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -131,3 +139,4 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+.fake
